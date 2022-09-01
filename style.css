@@ -1,19 +1,28 @@
 @font-face {
-  font-family: "cuprum";
+  font-family: "Cuprum";
   font-weight: 400;
   font-style: normal;
-  src: local("cuprum"),
+  src: local("Cuprum"),
     url("fonts/cuprum.woff2") format("woff2"),
     url("fonts/cuprum.woff") format("woff");
 }
 
 @font-face {
-  font-family: "cuprum";
+  font-family: "Cuprum";
   font-weight: 400;
   font-style: italic;
-  src: local("cuprum"),
+  src: local("Cuprum"),
     url("fonts/cuprumitalic.woff2") format("woff2"),
     url("fonts/cuprumitalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Cuprum Bold";
+  font-weight: 700;
+  font-style: normal;
+  src: local("Cuprum Bold"),
+    url("fonts/cuprumbold.woff2") format("woff2"),
+    url("fonts/cuprumbold.woff") format("woff");
 }
 
 @font-face {
@@ -25,10 +34,21 @@
     url("fonts/ptsans.woff") format("woff")
 }
 
+@font-face {
+  font-family: "PT Sans Bold";
+  font-weight: 700;
+  font-style: normal;
+  src: local("PT Sans Bold"),
+    url("fonts/ptsansbold.woff2") format("woff2"),
+    url("fonts/ptsansbold.woff") format("woff")
+}
+
 :root {
   --basic-black: #000000;
   --basic-white: #ffffff;
   --basic-red: #EE3643;
+  --special-red-hover: #CA2C37;
+  --special-red-focus: #BA2732;
   --basic-green: #63A63E;
   --basic-grey: #293449;
   --basic-graylight: #F9F5F0;
@@ -44,6 +64,7 @@
   --grey-border: #32425C;
   --box-hadow: #367315;
   --special-graydark: #A9A9A9;
+  --special-graydark-opacity: rgba(169, 169, 169, 0.3);
   --blue-dark: #1D2739;
   --blue-navy: #161D29;
   --white-focus: rgba(255, 255, 255, 0.5);
@@ -52,21 +73,15 @@
   --special-border: #EAEAEA;
   --special-greenlight-hover: #5FBB2D;
   --special-greylight: #C5C5C5;
+  --special-greylight-opacity: rgba(197, 197, 197, 0.3);
 }
 
-.page-body {
-  width: 1200px;
+body {
+  min-width: 1200px;
   margin: 0;
   padding: 0;
   color: var(--basic-black);
   background-color: var(--basic-white);
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
 }
 
 a {
@@ -78,415 +93,40 @@ img {
   height: auto;
 }
 
-.page-header {
+/*section header*/
+
+.page-header,
+.services {
   background-color: var(--basic-background);
 }
 
 .title {
   color: var(--basic-red);
-  font-family: 'cuprum', Arial, sans-serif;
+  font-family: "Cuprum", "Arial", "sans-serif";
   font-style: italic;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
   line-height: 23px;
 }
 
-.submenu {
+.submenu,
+.submenu-search,
+.menu,
+.footer-submenu {
   background-color: var(--basic-grey);
 }
 
-.submenu-search {
-  background-color: var(--basic-grey);
-}
-
-.submenu-list {
+ul {
   list-style: none;
 }
 
 .submenu-list a {
   color: var(--basic-white);
-}
-
-.adds {
-  font-family: 'cuprum', Arial, sans-serif;
+  font-family: "Cuprum", "Arial", "sans-serif";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-}
-
-.contacts-phone {
-  width: 270px;
-}
-
-.contacts a {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 21px;
-  line-height: 30px;
-  color: var(--basic-red);
-}
-
-.login-link,
-.registration-link {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 21px;
-  line-height: 21px;
-  color: var(--basic-black);
-  background-color: var(--basic-white);
-}
-
-.login-link:hover,
-.registration-link:hover {
-   color: var(--basic-red);
-}
-
-.login-link:focus,
-.registration-link:focus {
-   color: var(--special-greylight);
-}
-
-.menu {
-  width: 940px;
-  background-color: var(--basic-grey);
-}
-
-.site-navigation {
-  list-style: none;
-}
-
-.site-navigation a {
-  color: var(--basic-white);
-}
-
-.features {
-  background-color: var(--basic-white);
-}
-
-.features-list {
-  list-style: none;
-
-}
-
-.feature-item {
-  width: 300px;
-  height: 123px;
-  color: var(--basic-white);
-}
-
-.feature-item-yellow {
-  background-color: var(--special-yellow);
-}
-
-.feature-item-blue {
-  background-color: var(--special-blue);
-}
-
-.feature-item-lilac {
-  background-color: var(--special-lilac);
-}
-
-.feature-item-greenlight {
-  background-color: var(--special-greenlight);
-}
-
-.subtitle {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 30px;
-}
-
-.subtitle-new {
-  width: 100px;
-  height: 30px;
-  background-color: var(--basic-red);
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  text-transform: uppercase;
-  color: var(--basic-white);
-}
-
-.features-list a {
-  background: var(--white-opacity);
-  color: var(--basic-white);
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  text-transform: uppercase;
-}
-
-.tools {
-  width: 620px;
-  height: 104px;
-  background-color: var(--black-opacity);
-  color: var(--basic-white);
-}
-
-.tool-item {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 36px;
-  text-transform: uppercase;
-}
-
-.tagline {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  text-transform: none;
-}
-
-.main-catalog h2 {
-  Width: 192px;
-  height: 38px;
-  background-color: var(--basic-red);
-  color: var(--basic-white);
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  text-transform: uppercase;
-}
-
-
-.main-title {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 30px;
-  font-style: normal;
-  text-transform: uppercase;
-  color: var(--grey-border);
-}
-
-.all-goods {
-  background-color: var(--basic-red);
-  color: var(--basic-white);
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  text-transform: uppercase;
-}
-
-.goods-list {
-  list-style: none;
-  background-color: var(--basic-white);
-}
-
-.good-item {
-  border: 1px solid var(--special-border);
-  width: 220px;
-}
-
-.good-subtitle {
-  font-family: 'PT Sans', Arial, sans-serif;
-  font-size: 18px;
-  line-height: 20px;
-}
-
-.old-price {
-  text-decoration: line-through;
-  text-transform: uppercase;
-  color: var(--special-graydark);
-}
-
-.icon-red {
-  padding: 10px 44px 10px 32px;
-  background-image: url(img/icon-main/red-button.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  color: var(--basic-white);
-}
-
-.layer-name {
-  width: 940px;
-  height: 89px;
-  background-color: var(--basic-graylight);
-}
-
-.brands-list {
-  list-style: none;
-  background-color: var(--basic-white);
-}
-
-.brands-item {
-  border: 1px solid var(--special-border);
-  width: 220px;
-}
-
-.services {
-  background-color: var(--basic-background);
-  font-family: 'PT Sans', Arial, sans-serif;
-  font-size: 13px;
-}
-
-.services h2,
-.speech h2,
-.partners h2,
-.main-contacts h2 {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 30px;
-  font-style: normal;
-  text-transform: uppercase;
-}
-
-.services-list {
-  width: 240px;
-  list-style: none;
-  background-color: var(--grey-border);
-}
-
-.service-item a {
-  color: var(--basic-white);
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 21px;
-  line-height: 30px;
-}
-
-.service-item-dev > a {
-  background-color: var(--basic-white);
-  color: var(--basic-black);
-}
-
-.about-company {
-  background-color: var(--basic-white);
-}
-
-.about-company p {
-  font-family: 'PT Sans', Arial, sans-serif;
-  font-size: 13px;
-}
-
-.partners-list {
-  list-style: none;
-}
-
-.detail-company,
-.button-write {
-  background-color: var(--basic-red);
-  color: var(--basic-white);
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  text-transform: uppercase;
-}
-
-.footer-navigation {
-  background-color: var(--grey-border);
-}
-
-.navi {
-  color: var(--basic-white);
-}
-
-.navigation-item {
-  list-style: none;
-}
-
-.navigation-item a {
-  color: var(--basic-white);
-}
-
-.footer-adds {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  color: var(--basic-white);
-}
-
-.contacts-phone {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 21px;
-  line-height: 30px;
-  color: var(--basic-white);
-}
-
-.contacts-phone-nav {
-  border: 3px solid #FFFFFF;
-}
-
-.navigation-item .navigation-color {
-  color: var(--special-yellowlight);
-}
-
-.footer-submenu {
-  background-color: var(--basic-grey);
-  color: var(--basic-white);
-}
-
-.social-item {
-  list-style: none;
-}
-
-.footer-feedback,
-.footer-copyright {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
-}
-
-.footer-feedback a {
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
-  color: var(--special-yellowlight);
-}
-
-.button-submit {
-  background-color: var(--basic-red);
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  color: var(--basic-white);
-  text-transform: uppercase;
-}
-
-.feedback-form input[type="text"] {
-  background-color: var(--basic-white);
-  font-family: 'cuprum', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 24px;
-  color: var(--basic-black);
-}
-
-.breadcrumbs {
-  list-style: none;
-  font-family: 'PT Sans', Arial, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
 }
 
 .submenu-item-order {
@@ -527,9 +167,421 @@ img {
   background-color: var(--basic-white);
 }
 
+.contacts-phone {
+  width: 270px;
+}
+
+.contacts a {
+  color: var(--basic-red);
+}
+
+.login-link,
+.registration-link,
+.user-name {
+  font-family: 'cuprum', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 21px;
+  color: var(--basic-black);
+  background-color: var(--basic-white);
+}
+
+.login-link:hover,
+.registration-link:hover {
+  color: var(--basic-red);
+}
+
+.login-link:focus,
+.registration-link:focus {
+  color: var(--special-greylight);
+}
+
+.menu {
+  width: 940px;
+}
+
+.site-navigation a:hover {
+  background: var(--blue-dark);
+}
+
+.site-navigation a:focus {
+  color: var(--basic-white);
+  opacity: 0.5;
+}
+
+.feature-item {
+  width: 300px;
+  height: 123px;
+  color: var(--basic-white);
+}
+
+.feature-item a:hover {
+  background-color: var(--special-greylight-opacity);
+}
+
+.feature-item a:focus {
+  background-color: var(--special-graydark-opacity);
+}
+
+.feature-item-yellow {
+  background-color: var(--special-yellow);
+}
+
+.feature-item-blue {
+  background-color: var(--special-blue);
+}
+
+.feature-item-lilac {
+  background-color: var(--special-lilac);
+}
+
+.feature-item-greenlight {
+  background-color: var(--special-greenlight);
+}
+
+.subtitle {
+  font-family: 'cuprum', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.subtitle-new {
+  width: 100px;
+  height: 30px;
+  background-color: var(--basic-red);
+  color: var(--basic-white);
+}
+
+.features-list a {
+  background: var(--white-opacity);
+  color: var(--basic-white);
+}
+
+.tools {
+  width: 620px;
+  height: 104px;
+  background-color: var(--black-opacity);
+  color: var(--basic-white);
+}
+
+.tool-item {
+  font-family: 'Cuprum Bold', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.tagline {
+  text-transform: none;
+}
+
+.catalog input {
+  font-family: 'PT Sans', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.main-title {
+  color: var(--grey-border);
+}
+
+.main-catalog h2 {
+  Width: 192px;
+  height: 38px;
+  background-color: var(--basic-red);
+  color: var(--basic-white);
+}
+
+.main-catalog h2:hover {
+  background-color: var(--special-red-hover);
+}
+
+.main-catalog h2:focus {
+  background-color: var(--special-red-focus);
+}
+
+.all-goods {
+  background-color: var(--basic-red);
+  color: var(--basic-white);
+}
+
+.goods-list {
+  background-color: var(--basic-white);
+}
+
+.good-item {
+  border: 1px solid var(--special-border);
+  width: 220px;
+}
 
 
+.good-subtitle {
+  font-family: 'PT Sans Bold', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: var(--special-graydark);
+}
+
+.icon-red {
+  padding: 10px 44px 10px 32px;
+  background-image: url(img/icon-main/red-button.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: var(--basic-white);
+}
+
+.icon-red,
+.old-price {
+  font-family: 'PT Sans Bold', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.layer-name {
+  width: 940px;
+  height: 89px;
+  background-color: var(--basic-graylight);
+}
+
+.brands-item:hover {
+  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.15));
+}
+
+.partners a,
+.footer-adds,
+.modal label,
+.tagline,
+.site-navigation a,
+.footer-navigation a,
+.adds {
+  font-family: 'Cuprum', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.site-navigation a {
+  color: var(--basic-white);
+}
+
+.services h2,
+.speech h2,
+.partners h2,
+.main-contacts h2,
+.catalog h2,
+.main-title {
+  font-family: 'cuprum', "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 30px;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.services-list {
+  width: 240px;
+  background-color: var(--grey-border);
+}
+
+.service-item a,
+.contacts-phone {
+  color: var(--basic-white);
+  font-family: 'cuprum Bold', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 30px;
+}
+
+.service-item-dev > a {
+  background-color: var(--basic-white);
+  color: var(--basic-black);
+}
+
+.about-company p,
+.speech p,
+.services,
+.feedback-form input[type="text"] {
+  font-family: 'PT Sans', "Arial", sans-serif;
+  font-size: 13px;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.about-company p,
+.speech h2,
+.partners h2,
+.partners a {
+  color: var(--basic-black);
+}
+
+.detail-company,
+.button-write {
+  background-color: var(--basic-red);
+  color: var(--basic-white);
+}
 
 
+.footer-navigation {
+  background-color: var(--grey-border);
+}
 
+.footer-adds,
+.modal label,
+.footer-submenu,
+.navigation-item a,
+.navi,
+.about-company,
+.brands-list,
+.feature-item a,
+.site-navigation a,
+.footer-navigation a,
+.features {
+  color: var(--basic-white);
+}
 
+.contacts-phone-nav {
+  border: 3px solid #FFFFFF;
+}
+
+.navigation-item .navigation-color {
+  color: var(--special-yellowlight);
+}
+
+.footer-feedback,
+.footer-copyright,
+.footer-feedback a {
+  font-family: 'cuprum', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.footer-feedback a {
+  color: var(--special-yellowlight);
+}
+
+.button-submit {
+  background-color: var(--basic-red);
+  color: var(--basic-white);
+  text-transform: uppercase;
+}
+
+.feedback-form input[type="text"] {
+  background-color: var(--basic-white);
+  color: var(--basic-black);
+}
+
+.breadcrumbs,
+.show,
+.pages,
+.sorting-item a,
+.filter,
+.sorting {
+  font-family: 'PT Sans', "Arial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.user-name {
+  width: 299px;
+}
+
+.user-name {
+  margin-bottom: 5px;
+}
+
+.user-name input:focus {
+  color: var(--special-greylight);
+}
+
+.power-item,
+.brands-list {
+  font-family: 'PT Sans', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 19px;
+  text-transform: uppercase;
+}
+
+.card-products a,
+.button-submit,
+.detail-company,
+.button-write,
+.detail-company,
+.button-write,
+.subtitle-new,
+.features-list a,
+.main-catalog h2,
+.all-goods {
+  font-family: 'Cuprum', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.sorting-item a {
+  color: var(--basic-black);
+}
+
+.select-buy a {
+  background-color: var(--basic-green);
+  color: var(--basic-white);
+}
+
+.select-marker a {
+  border: 3px solid var(--basic-green);
+  border-radius: 2px;
+}
+
+.select-buy a:hover {
+  background-color: var(--special-greenlight-hover);
+}
+
+.select-buy a:focus {
+  background-color: var(--green-dark);
+}
+
+.select-marker a:hover {
+  border: 3px solid var(--grey-border);
+  border-radius: 2px;
+}
+
+.select-marker a:focus {
+  border: 3px solid var(--grey-border);
+  border-radius: 2px;
+  opacity: 0.5;
+  color: var(--grey-border);
+}
+
+legend {
+  font-family: 'PT Sans Bold', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 30px;
+}
